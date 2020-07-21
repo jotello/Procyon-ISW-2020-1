@@ -52,6 +52,16 @@ public class ServicioReserva {
         }
     }
 
+    public boolean borrar(long id){
+        try{
+            Reserva reserva = repo.findById(id);
+            repo.delete(reserva);
+            return true;
+        } catch (Exception e){
+            return false;
+        }
+    }
+
     public boolean actualizar(long id, Reserva reserva){
         reserva.setID(id);
         reserva.setDateLog(getCurrentTime());

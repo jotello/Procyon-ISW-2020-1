@@ -22,7 +22,8 @@ public class ServicioSolicitud {
 
         try{
             // Agrego la fecha de la solicitud, desde la hora del servidor
-            solicitud.setDateSolicitud(getCurrentTime());  
+            solicitud.setDateSolicitud(getCurrentTime());
+            solicitud.setStatus(true);  
             repo.save(solicitud);
             return true;
         } catch (Exception e){

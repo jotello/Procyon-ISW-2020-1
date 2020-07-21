@@ -46,8 +46,8 @@ public class Solicitudes {
     }
 
     @PostMapping()
-    public void createSolicitud(@RequestBody Solicitud sol) {
-        solicitud.crear(sol);
+    public boolean createSolicitud(@RequestBody Solicitud sol) {
+        return solicitud.crear(sol);
     }
 
     // Esta funcion solo será usada cuando la solicitud se confirme (o sea, se produzca la reserva)

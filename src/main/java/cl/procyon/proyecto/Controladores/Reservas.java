@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,8 +56,13 @@ public class Reservas {
     }
 
     @PostMapping()
-    public void createSolicitud(@RequestBody Reserva res) {
-        reserva.crear(res);
+    public boolean createSolicitud(@RequestBody Reserva res) {
+        return reserva.crear(res);
+    }
+
+    @DeleteMapping("/reserva/{id}")
+    public boolean borrar(@PathVariable("id") long id) {
+        return reserva.borrar(id);
     }
 
 }
